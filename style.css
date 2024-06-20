@@ -1,0 +1,28 @@
+body {
+	background-color: red;
+}
+
+h1 {
+	text-align: center;
+}
+
+.dice {
+	text-align: center;
+}
+
+.allPlayers {
+	display: grid;
+	grid-template-columns: auto auto;
+
+}
+
+.rolledDice {
+/*	display: block;*/
+/*	display: inline-grid;*/
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.rolledDice p {
+	margin: 10px;
+}
