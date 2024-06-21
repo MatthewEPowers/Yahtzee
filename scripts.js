@@ -5,6 +5,18 @@ console.log("Yahtzee!");
 // create dice and dice randomizer
 
 
+// set up a play game button
+// create a dropdown number of players option to shose from before hiting play game button
+// one hit play game display each players score cardes as well as which players turn it is
+// create a roll dice button to start your turn
+// then create dice selector to chose which dice you want to reroll
+// create a reroll button
+// end turn after 3 rolls
+// create a score selector let player choose which score they want to go with and add it to their score chart
+// after game is finish add up all points and display the winner
+// make page prity
+
+
 var dice1, dice2, dice3, dice4, dice5, dice6; 
 
 
@@ -17,24 +29,23 @@ document.getElementById("playerOne").addEventListener("click", playerOne);
 
 function rollAllDice() {
 
-	dice1 = rollDice();
-	dice2 = rollDice();
-	dice3 = rollDice();
-	dice4 = rollDice();
-	dice5 = rollDice();
-	dice6 = rollDice();
-    // document.getElementById("dice1").innerHTML = "dice1: " + dice1;
-    // document.getElementById("dice2").innerHTML = "dice2: " + dice2;
-    // document.getElementById("dice3").innerHTML = "dice3: " + dice3;
-    // document.getElementById("dice4").innerHTML = "dice4: " + dice4;
-    // document.getElementById("dice5").innerHTML = "dice5: " + dice5;
-    // document.getElementById("dice6").innerHTML = "dice6: " + dice6;
-    document.getElementById("dice1").innerHTML = dice1;
-    document.getElementById("dice2").innerHTML = dice2;
-    document.getElementById("dice3").innerHTML = dice3;
-    document.getElementById("dice4").innerHTML = dice4;
-    document.getElementById("dice5").innerHTML = dice5;
-    document.getElementById("dice6").innerHTML = dice6;
+	// dice1 = rollDice();
+	// dice2 = rollDice();
+	// dice3 = rollDice();
+	// dice4 = rollDice();
+	// dice5 = rollDice();
+	// dice6 = rollDice();
+
+	var dice = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
+	// console.log("dice: " + dice);
+
+	for (let i = 0; i < dice.length; i++) {
+		let y = dice[i];
+		let x = rollDice();
+		console.log("y: " + y);
+		console.log("x: " + x);
+		document.getElementById(y).innerHTML = x;
+	  }
 
 }
 
@@ -55,10 +66,6 @@ function playerOne() {
 	
 }
 
-
-
-
-// document.getElementById("demo").innerHTML = Math.floor(Math.random() * 6) + 1;
 
 
 
