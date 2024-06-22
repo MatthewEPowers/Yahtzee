@@ -1,10 +1,5 @@
 console.log("Yahtzee!");
 
-// set up players object
-// set up game object
-// create dice and dice randomizer
-
-
 // set up a play game button
 // create a dropdown number of players option to shose from before hiting play game button
 // one hit play game display each players score cardes as well as which players turn it is
@@ -17,13 +12,59 @@ console.log("Yahtzee!");
 // make page prity
 
 
-var dice1, dice2, dice3, dice4, dice5, dice6; 
+// document.getElementById("startGameButton").addEventListener("click", startGame);
 
 
-document.getElementById("rollDice").addEventListener("click", rollAllDice);
+// var dice1, dice2, dice3, dice4, dice5, dice6; 
+var dice = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
+let numRolles = 0;
 
-document.getElementById("playerOne").addEventListener("click", playerOne);
+document.getElementById("rollDice").addEventListener("click", startTurn);
+document.getElementById("rerollDice").addEventListener("click", rerollDice);
+
+	//how to select element class
+	// const collection = document.getElementsByClassName("example");
+
+// var rollButton = document.getElementById("rollDice");
+// rollButton.addEventListener("click", startTurn);
+
+// document.getElementById("playerOne").addEventListener("click", playerOne);
 // document.getElementById("2player").addEventListener("click", 2player);
+
+
+
+function startTurn() {
+
+	document.getElementById("rollDice").style.display = "none";
+	document.getElementById("rerollDice").style.display = "block";
+ 	rollAllDice();
+	numRolles++;
+
+	// x = document.getElementById("rollDice");
+	
+
+	// while (numRolles < 3){
+	// 	// document.getElementById("rerollDice").addEventListener("click", rollAllDice);
+	// 	rollButton.addEventListener("click", rollAllDice);
+		
+	// 	console.log("numRolles in while " + numRolles);
+	// }
+	// document.getElementById("rollDice").style.display = "none";
+
+	// document.getElementById("startGameButton").style.display = "none";
+}
+
+function rerollDice() {
+	// body...
+	rollAllDice();
+	numRolles++;
+	console.log("numRolles in while " + numRolles);
+
+	if (numRolles == 3) {
+		document.getElementById("rerollDice").style.display = "none";
+	}
+
+}
 
 
 
@@ -36,16 +77,17 @@ function rollAllDice() {
 	// dice5 = rollDice();
 	// dice6 = rollDice();
 
-	var dice = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
+	// var dice = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
 	// console.log("dice: " + dice);
 
 	for (let i = 0; i < dice.length; i++) {
 		let y = dice[i];
 		let x = rollDice();
-		console.log("y: " + y);
-		console.log("x: " + x);
+		// console.log("y: " + y);
+		// console.log("x: " + x);
 		document.getElementById(y).innerHTML = x;
 	  }
+	  // numRolles++;
 
 }
 

@@ -27,3 +27,7 @@ h1 {
 	margin: 10px;
 	font-size: 35px;
 }
+
+.thisDice:hover {
+	font-size: 45px;
+}
