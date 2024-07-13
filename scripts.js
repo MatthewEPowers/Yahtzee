@@ -12,24 +12,43 @@ console.log("Yahtzee!");
 // make page prity
 
 
-// document.getElementById("startGameButton").addEventListener("click", startGame);
-
-
 // var dice1, dice2, dice3, dice4, dice5, dice6; 
 var dice = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
+var allDice = [];
 let numRolles = 0;
 
 document.getElementById("rollDice").addEventListener("click", startTurn);
+
 document.getElementById("rerollDice").addEventListener("click", rerollDice);
 
-	//how to select element class
-	// const collection = document.getElementsByClassName("example");
+document.getElementById("allDice").addEventListener("click", selectDice);
 
-// var rollButton = document.getElementById("rollDice");
-// rollButton.addEventListener("click", startTurn);
 
-// document.getElementById("playerOne").addEventListener("click", playerOne);
-// document.getElementById("2player").addEventListener("click", 2player);
+
+
+
+let answersArray = document.querySelectorAll(".rolledDice");
+
+answersArray.forEach(function(answer) {
+  answer.addEventListener("click", function(e) {
+  	// let answerText = e.currentTarget.child.id();
+  	// let answerText = e.target.closest('.rolledDice').querySelector('p');
+  	let answerText = e.target.parentNode.querySelector('p').id;
+  	// let answerText = e.currentTarget.children;
+  	console.log('this dice is: ' + answerText);
+
+
+    // let answerText = e.currentTarget.children[e.currentTarget.children.length - 1];
+    // let answerText = e.target.closest('.answerBox').querySelector('p');
+
+    // if (answerText.id === "answerB") {
+    //   console.log('hiya')
+    // }
+  });
+});
+
+
+
 
 
 
@@ -39,19 +58,13 @@ function startTurn() {
 	document.getElementById("rerollDice").style.display = "block";
  	rollAllDice();
 	numRolles++;
+}
 
-	// x = document.getElementById("rollDice");
-	
 
-	// while (numRolles < 3){
-	// 	// document.getElementById("rerollDice").addEventListener("click", rollAllDice);
-	// 	rollButton.addEventListener("click", rollAllDice);
-		
-	// 	console.log("numRolles in while " + numRolles);
-	// }
-	// document.getElementById("rollDice").style.display = "none";
-
-	// document.getElementById("startGameButton").style.display = "none";
+function selectDice() {
+	// body...
+	// selectedDice.getElementById();
+	console.log("this clicked");
 }
 
 function rerollDice() {
@@ -70,24 +83,13 @@ function rerollDice() {
 
 function rollAllDice() {
 
-	// dice1 = rollDice();
-	// dice2 = rollDice();
-	// dice3 = rollDice();
-	// dice4 = rollDice();
-	// dice5 = rollDice();
-	// dice6 = rollDice();
-
-	// var dice = ["dice1", "dice2", "dice3", "dice4", "dice5", "dice6"]
-	// console.log("dice: " + dice);
-
 	for (let i = 0; i < dice.length; i++) {
 		let y = dice[i];
 		let x = rollDice();
-		// console.log("y: " + y);
-		// console.log("x: " + x);
+		allDice.push(x);
 		document.getElementById(y).innerHTML = x;
 	  }
-	  // numRolles++;
+	  console.log("dice " + allDice);
 
 }
 
@@ -96,6 +98,13 @@ function rollDice() {
 	var randomNumber = Math.floor(Math.random() * 6) + 1;
 	return randomNumber;
 }
+
+
+
+
+
+
+
 
 function playerOne() {
 	// body...
